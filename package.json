@@ -1,0 +1,24 @@
+{
+  "name": "revealme",
+  "subdomain": "revealme",
+  "version": "0.0.1",
+  "description": "Reveal.js Presentations hosted on github",
+  "author": "Jon Eisen <jon.m.eisen@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yanatan16/revealme.git"
+  },
+  "main": "./server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "hbs": "~2.3.0",
+    "handlebars": "~1.0.12",
+    "express": "~3.2.6"
+  },
+  "engines": {
+    "node": "0.10.x"
+  }
+}
