@@ -4,7 +4,8 @@ var retriever = require('./retriever');
 module.exports = function (app) {
 
   app.get(/\/.+/, function (req, res) {
-    var path = req.url;
+    var path = req.url.split('?')[0],
+        theme = req.query.s || req.query.style || "default";
 
     retriever.get(path, function (err, data, title) {
       if (err) {
@@ -14,7 +15,8 @@ module.exports = function (app) {
 
       res.render('reveal', {
         body: data,
-        title: title
+        title: title,
+        theme: theme,
       });
     });
   });
