@@ -22,8 +22,12 @@ function getFile(path, callback) {
 		res.on('error', callback);
 
 		res.on('end', function () {
-			callback(null, buf);
+			callback(null, buf, extractTitle(buf));
 		});
 
 	}).on('error', callback).end();
+}
+
+function extractTitle(data) {
+	return data.match(/^title: (.*)$/m)[1]
 }

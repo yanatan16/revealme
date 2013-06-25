@@ -16,7 +16,8 @@
   "dependencies": {
     "hbs": "~2.3.0",
     "handlebars": "~1.0.12",
-    "express": "~3.2.6"
+    "express": "~3.2.6",
+    "markdown": "~0.4.0"
   },
   "engines": {
     "node": "0.10.x"
