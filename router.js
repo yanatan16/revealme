@@ -3,7 +3,7 @@ var retriever = require('./retriever');
 
 module.exports = function (app) {
 
-  app.get(/.*/, function (req, res) {
+  app.get(/\/.+/, function (req, res) {
     var path = req.url;
 
     retriever.get(path, function (err, data) {
@@ -15,5 +15,9 @@ module.exports = function (app) {
       res.render('reveal', {body: data});
     });
   });
+
+  app.get('/', function (req, res) {
+  	res.redirect(301, '/yanatan16/revealme/master/example/example.html');
+  })
 
 };
