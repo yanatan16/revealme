@@ -29,5 +29,6 @@ function getFile(path, callback) {
 }
 
 function extractTitle(data) {
-	return data.match(/^title: (.*)$/m)[1]
+	var match = data.match(/title: (.*)/m);
+	return match && match[1];
 }
