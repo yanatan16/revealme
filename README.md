@@ -2,7 +2,7 @@
 
 title: RevealMe Presentations
 theme: sky
-transition: zoom
+transition: cube
 
 -->
 
@@ -29,19 +29,27 @@ _Note_: Right now, you cannot mix the two formats.
 
 Revealme links have two options:
 
-- `revealme.herokuapp.com/<github-user>/<github-repository>` will read the README.md file in the master branch of the repository.
-- `revealme.herokuapp.com/<github-user>/<github-repository>/<git-branch>/<file-path>.<ext>`
-    - For example, we could use `revealme.herokuapp.com/yanatan16/revealme/master/example/example.html` to directly refer to that presentation file.
+		revealme.herokuapp.com/<github-user>/<github-repository>
+
+will read the README.md file in the master branch of the repository.
+
+		revealme.herokuapp.com/<github-user>/<github-repository>/<git-branch>/<file-path>.<ext>
+
+will refer directly to files in your repository. For example:
+
+		revealme.herokuapp.com/yanatan16/revealme/master/example/example.html
 
 ## Options
 
 There are a couple of options available to each presentation. Just stick these in an html comment at the top of your presentation in a simple format:
 
-		<!-- revealme options
+    <!-- revealme options
     title: My Title Text
     theme: beige
     transition: concave
     -->
+
+## Available Options
 
 - Titles affect the <title> on the page.
 - There are a set of themes that come with [reveal.js][1]: sky, beige, simple, serif, night, default
