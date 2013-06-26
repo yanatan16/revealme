@@ -15,7 +15,7 @@ An in-browser presentation experience using [reveal.js][1].
 revealme is a github-proxy, and all files are stored there.
 
 - Github repository: [github.com/yanatan16/revealme](https://github.com/yanatan16/revealme)
-- Revealme presentation: [revealme.herokuapp.com/yanatan16/revealme](http://github.com/yanatan16/revealme)
+- Revealme presentation: [revealme.herokuapp.com/yanatan16/revealme](http://revealme.herokuapp.com/yanatan16/revealme)
 
 ## Formats
 
