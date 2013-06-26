@@ -46,7 +46,7 @@ function getFile(path, callback) {
 }
 
 function extractOptions(data) {
-	var opts = _.options(_.keys(defaults), _.values(defaults));
+	var opts = _.object(_.keys(defaults), _.values(defaults));
 	_.each(_.pairs(options), function (pair) {
 		var key = pair[0],
 				rgx = pair[1],

@@ -44,7 +44,7 @@ module.exports = function (app) {
   });
 
   app.get('/', function (req, res) {
-  	res.redirect(301, '/yanatan16/revealme/master/example/example.html');
+  	res.redirect(301, '/yanatan16/revealme');
   })
 
 };
