@@ -8,7 +8,7 @@ transition: cube
 
 # revealme
 
-An in-browser presentation experience using [reveal.js][1].
+An in-browser presentation experience using [reveal.js](http://lab.hakim.se/reveal-js/).
 
 # Using revealme
 
@@ -19,7 +19,7 @@ revealme is a github-proxy, and all files are stored there.
 
 ## Formats
 
-Revealme accepts any `.html` format that [reveal.js][1]. It has also been extended to take raw markdown.
+Revealme accepts any `.html` format that [reveal.js](http://lab.hakim.se/reveal-js/). It has also been extended to take raw markdown.
 
 Revealme will create a slide for every h1 and h2 markdown header (# / ## or ==== / ----). It will make any h1 a horizontal slide and any h2 a vertical slide.
 
@@ -52,7 +52,7 @@ There are a couple of options available to each presentation. Just stick these i
 ## Available Options
 
 - Titles affect the <title> on the page.
-- There are a set of themes that come with [reveal.js][1]: sky, beige, simple, serif, night, default
+- There are a set of themes that come with [reveal.js](http://lab.hakim.se/reveal-js/): sky, beige, simple, serif, night, default
 		- hint: You can change this on any presentation with the query parameter theme: [Try it](?theme=serif)
 - Available Transitions: default, cube, page, concave, zoom, linear, fade, none
     - hint: Use the transition query parameter: [Try it](?transition=cube)
@@ -60,5 +60,3 @@ There are a couple of options available to each presentation. Just stick these i
 # Thanks
 
 Many thanks to the [Hakim El Hattab](http://hakim.se/) for authoring the beautiful [reveal.js](http://lab.hakim.se/reveal-js/).
-
-[1]: http://lab.hakim.se/reveal-js/ "reveal.js"
