@@ -13,7 +13,8 @@ module.exports = function (app) {
 
   app.get(/\/.+/, function (req, res) {
     var url = adjustPath(req.url.split('?')[0]),
-        theme = req.query.theme || req.query.style;
+        theme = req.query.theme || req.query.style,
+        transition = req.query.transition;
 
     retriever.get(url, function (err, data, opts) {
       if (err) {
@@ -33,6 +34,9 @@ module.exports = function (app) {
 
       if (theme) {
         opts.theme = theme;
+      }
+      if (transition) {
+        opts.transition = transition;
       }
 
       res.render('reveal', opts);

@@ -9,7 +9,13 @@ var converter = require('./converter');
 
 var options = {
 	title: /title: (.*)/m,
-	theme: /theme: (.*)/m
+	theme: /theme: (.*)/m,
+	transition: /transition: (.*)/m
+},
+		defaults = {
+	title: "RevealMe Presentations",
+	theme: "default",
+	transition: "default"
 }
 
 module.exports = {
@@ -40,7 +46,7 @@ function getFile(path, callback) {
 }
 
 function extractOptions(data) {
-	var opts = {};
+	var opts = _.options(_.keys(defaults), _.values(defaults));
 	_.each(_.pairs(options), function (pair) {
 		var key = pair[0],
 				rgx = pair[1],
