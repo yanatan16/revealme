@@ -1,23 +1,41 @@
+// builtin
+var path = require('path');
+
+// vendor
+var _ = require('underscore'),
+    mime = require('mime');
+
 // local
-var retriever = require('./retriever');
+var retriever = require('./retriever'),
+    converter = require('./converter');
 
 module.exports = function (app) {
 
   app.get(/\/.+/, function (req, res) {
-    var path = req.url.split('?')[0],
-        theme = req.query.s || req.query.style || "default";
+    var url = adjustPath(req.url.split('?')[0]),
+        theme = req.query.theme || req.query.style;
 
-    retriever.get(path, function (err, data, title) {
+    retriever.get(url, function (err, data, opts) {
       if (err) {
-      	console.error("Error in get (" + path + "): " + err);
-        res.send(404, { error: 'file not found: ' + path });
+      	console.error("Error in get (" + url + "): " + err);
+        res.send(404, { error: 'file not found: ' + url });
       }
 
-      res.render('reveal', {
-        body: data,
-        title: title,
-        theme: theme,
+      switch (mime.lookup(url)) {
+        case 'text/x-markdown':
+          data = converter(data);
+          break;
+      }
+
+      _.extend(opts, {
+        body: data
       });
+
+      if (theme) {
+        opts.theme = theme;
+      }
+
+      res.render('reveal', opts);
     });
   });
 
@@ -26,3 +44,17 @@ module.exports = function (app) {
   })
 
 };
+
+// If path ends in an extension, don't touch it
+// If path has two folders, add /master/README.md
+function adjustPath(url) {
+  if (path.extname(url).length > 0) {
+    return url;
+  }
+
+  if (url.slice(1).split('/').length === 2) {
+    return url + '/master/README.md';
+  }
+
+  return url;
+}

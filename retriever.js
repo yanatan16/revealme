@@ -1,6 +1,17 @@
 // builtin
 var https = require('https');
 
+// vendor
+var _ = require('underscore');
+
+// local
+var converter = require('./converter');
+
+var options = {
+	title: /title: (.*)/m,
+	theme: /theme: (.*)/m
+}
+
 module.exports = {
 	get: getFile
 };
@@ -22,13 +33,22 @@ function getFile(path, callback) {
 		res.on('error', callback);
 
 		res.on('end', function () {
-			callback(null, buf, extractTitle(buf));
+			callback(null, buf, extractOptions(buf));
 		});
 
 	}).on('error', callback).end();
 }
 
-function extractTitle(data) {
-	var match = data.match(/title: (.*)/m);
-	return match && match[1];
+function extractOptions(data) {
+	var opts = {};
+	_.each(_.pairs(options), function (pair) {
+		var key = pair[0],
+				rgx = pair[1],
+				match = data.match(rgx);
+
+		if (match) {
+			opts[key] = match[1];
+		}
+	});
+	return opts;
 }
