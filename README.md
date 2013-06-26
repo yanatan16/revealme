@@ -29,15 +29,15 @@ _Note_: Right now, you cannot mix the two formats.
 
 Revealme links have two options:
 
-		revealme.herokuapp.com/<github-user>/<github-repository>
+	revealme.herokuapp.com/<github-user>/<github-repository>
 
 will read the README.md file in the master branch of the repository.
 
-		revealme.herokuapp.com/<github-user>/<github-repository>/<git-branch>/<file-path>.<ext>
+	revealme.herokuapp.com/<github-user>/<github-repository>/<git-branch>/<file-path>.<ext>
 
 will refer directly to files in your repository. For example:
 
-		revealme.herokuapp.com/yanatan16/revealme/master/example/example.html
+	revealme.herokuapp.com/yanatan16/revealme/master/example/example.html
 
 ## Options
 
