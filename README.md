@@ -53,7 +53,7 @@ There are a couple of options available to each presentation. Just stick these i
 
 - Titles affect the <title> on the page.
 - There are a set of themes that come with [reveal.js](http://lab.hakim.se/reveal-js/): sky, beige, simple, serif, night, default
-		- hint: You can change this on any presentation with the query parameter theme: [Try it](?theme=serif)
+	- hint: You can change this on any presentation with the query parameter theme: [Try it](?theme=serif)
 - Available Transitions: default, cube, page, concave, zoom, linear, fade, none
     - hint: Use the transition query parameter: [Try it](?transition=cube)
 
