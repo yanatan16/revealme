@@ -2,13 +2,13 @@
 
 title: RevealMe Presentations
 theme: sky
-transition: cube
+transition: default
 
 -->
 
 # revealme
 
-An in-browser presentation experience using [reveal.js](http://lab.hakim.se/reveal-js/).
+An in-browser presentation experience using [reveal.js](http://lab.hakim.se/reveal-js/)
 
 # Using revealme
 
