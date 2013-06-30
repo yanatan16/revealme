@@ -17,9 +17,9 @@
     "hbs": "~2.3.0",
     "handlebars": "~1.0.12",
     "express": "~3.2.6",
-    "markdown": "~0.4.0",
     "underscore": "~1.4.4",
-    "mime": "~1.2.9"
+    "mime": "~1.2.9",
+    "marked": "~0.2.9"
   },
   "engines": {
     "node": "0.10.x"

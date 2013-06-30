@@ -10,12 +10,14 @@ var converter = require('./converter');
 var options = {
 	title: /title: (.*)/m,
 	theme: /theme: (.*)/m,
-	transition: /transition: (.*)/m
+	transition: /transition: (.*)/m,
+	horizontalOnly: /horizOnly:(.*)/m
 },
 		defaults = {
 	title: "RevealMe Presentations",
 	theme: "default",
-	transition: "default"
+	transition: "default",
+	horizontalOnly: false
 }
 
 module.exports = {

@@ -1,49 +1,80 @@
 // vendor
 var _ = require('underscore'),
-		markdown = require('markdown').markdown;
+		markdown = require('marked');
 
 module.exports = convertMarkdown;
 
-function convertMarkdown(md) {
-	var tree = markdown.parse(md, "Maruku");
+markdown.setOptions({
+	gfm: true,
+	sanitize: true,
+	tables: true,
+	breaks: false,
+	pedantic: false,
+	smartLists: true,
+	smartypants: true
+});
 
-	tree = wrapSections(tree, 2);
-	tree = wrapSections(tree, 1);
+function convertMarkdown(md, singleWrap) {
+	var tree = markdown.lexer(md);
 
-	return markdown.renderJsonML( markdown.toHTMLTree(tree));
-}
-
-function createHeaderLevel(lvl) {
-	return function (obj) {
-		return obj[0] === 'header' && obj[1].level <= lvl;
+	if (singleWrap) {
+		tree = wrapSectionsSingle(tree);
 	}
+	else {
+		tree = wrapSectionsDouble(tree);
+	}
+
+	return markdown.parser(tree);
 }
 
-function wrapSections(tree, lvl) {
+function wrapSectionsSingle(tree) {
 	var indexes = [],
-			isHeader = createHeaderLevel(lvl);
+			isHeader = function (obj) {
+				return obj.type === 'heading' && obj.depth <= 2;
+			},
+			open = {type:'html',pre:true,text:'<section>'},
+			close = {type:'html',pre:true,text:'</section>'};
 
-	_.each(tree.slice(1), function (subtree, i) {
+	_.each(tree, function (subtree, i) {
 		if (isHeader(subtree)) {
-			indexes.push(i + 1);
-		} else if (_.isArray(subtree[0]) && subtree[0][0] === 'section') {
-			if (_.filter(subtree.slice(1), isHeader).length > 0) {
-				indexes.push(i + 1);
-			}
+			indexes.push(i);
 		}
 	});
 
-	if (indexes.length > 0) {
+	_.each(indexes.slice(1).reverse(), function (i) {
+		tree.splice(i, 0, close, open);
+	});
+	tree.splice(0, indexes[0] || 0, open);
+	tree.splice(tree.length, 0, close);
 
-		var tree2 = tree.slice(0, 1),
-				zipdex = _.zip(indexes, indexes.slice(1).concat(tree.length));
-		_.each(zipdex, function (pair) {
-			var start = pair[0], end = pair[1];
-			tree2.push([ ['section']].concat(tree.slice(start, end)));
-		});
+	return tree;
+}
 
-		return tree2;
-	}
+function wrapSectionsDouble(tree) {
+	var indexes = [],
+			isHeader = function (obj) {
+				return obj.type === 'heading' && obj.depth <= 2;
+			},
+			open = {type:'html',pre:true,text:'<section><section>'},
+			middle = {type:'html',pre:true,text:'</section><section>'},
+			close = {type:'html',pre:true,text:'</section></section>'};
+
+	_.each(tree, function (subtree, i) {
+		if (isHeader(subtree)) {
+			indexes.push({i:i,d:subtree.depth});
+		}
+	});
+
+	_.each(indexes.slice(1).reverse(), function (ind) {
+		if (ind.d === 2) {
+			tree.splice(ind.i, 0, middle);
+		} else {
+			tree.splice(ind.i, 0, close, open);
+		}
+	});
+
+	tree.splice(0, (indexes[0] && indexes[0].i) || 0, open);
+	tree.splice(tree.length, 0, close);
 
 	return tree;
 }

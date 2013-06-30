@@ -27,15 +27,13 @@ _Note_: Right now, you cannot mix the two formats.
 
 ## Linking
 
-Revealme links have two options:
+Revealme links have three options:
 
 		revealme.herokuapp.com/<github-user>/<github-repository>
+        revealme.herokuapp.com/<github-user>/<github-repository>/<git-branch>
+        revealme.herokuapp.com/<github-user>/<github-repository>/<git-branch>/<file-path>.<ext>
 
-will read the README.md file in the master branch of the repository.
-
-		revealme.herokuapp.com/<github-user>/<github-repository>/<git-branch>/<file-path>.<ext>
-
-will refer directly to files in your repository. For example:
+The top one will read the README.md file in the master branch of the repository, while the second will read the README.md in the branch specified. The third will will refer directly to files in your repository. For example:
 
 		revealme.herokuapp.com/yanatan16/revealme/master/example/example.html
 
@@ -47,15 +45,17 @@ There are a couple of options available to each presentation. Just stick these i
     title: My Title Text
     theme: beige
     transition: concave
+    horizOnly: true
     -->
 
 ## Available Options
 
 - Titles affect the <title> on the page.
 - There are a set of themes that come with [reveal.js][1]: sky, beige, simple, serif, night, default
-		- hint: You can change this on any presentation with the query parameter theme: [Try it](?theme=serif)
+		- hint: [?theme=serif](http://revealme.herokuapp.com/yanatan16/revealme?theme=serif#/1/4)
 - Available Transitions: default, cube, page, concave, zoom, linear, fade, none
-    - hint: Use the transition query parameter: [Try it](?transition=cube)
+    - hint: [?transition=cube](http://revealme.herokuapp.com/yanatan16/revealme?transition=cube#/1/4)
+- Horizontal Only: Don't use the vertical slides. [?horiz=true](http://revealme.herokuapp.com/yanatan16/revealme?horiz=true#/5)
 
 # Thanks
 
