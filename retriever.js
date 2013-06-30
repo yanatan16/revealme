@@ -8,10 +8,10 @@ var _ = require('underscore');
 var converter = require('./converter');
 
 var options = {
-	title: /title: (.*)/m,
-	theme: /theme: (.*)/m,
-	transition: /transition: (.*)/m,
-	horizontalOnly: /horizOnly:(.*)/m
+	title: /^title: (.*)/m,
+	theme: /^theme: (.*)/m,
+	transition: /^transition: (.*)/m,
+	horizontalOnly: /^horizOnly:(.*)/m
 },
 		defaults = {
 	title: "RevealMe Presentations",

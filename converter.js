@@ -19,8 +19,7 @@ function convertMarkdown(md, singleWrap) {
 
 	if (singleWrap) {
 		tree = wrapSectionsSingle(tree);
-	}
-	else {
+	}	else {
 		tree = wrapSectionsDouble(tree);
 	}
 
