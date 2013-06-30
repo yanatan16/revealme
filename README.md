@@ -29,9 +29,9 @@ _Note_: Right now, you cannot mix the two formats.
 
 Revealme links have three options:
 
-		revealme.herokuapp.com/<github-user>/<github-repository>
-        revealme.herokuapp.com/<github-user>/<github-repository>/<git-branch>
-        revealme.herokuapp.com/<github-user>/<github-repository>/<git-branch>/<file-path>.<ext>
+	revealme.herokuapp.com/<github-user>/<github-repository>
+    revealme.herokuapp.com/<github-user>/<github-repository>/<git-branch>
+    revealme.herokuapp.com/<github-user>/<github-repository>/<git-branch>/<file-path>.<ext>
 
 The top one will read the README.md file in the master branch of the repository, while the second will read the README.md in the branch specified. The third will will refer directly to files in your repository. For example:
 
