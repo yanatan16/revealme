@@ -42,8 +42,8 @@ The top one will read the README.md file in the master branch of the repository,
 Revealme now supports linking from gists:
 
 ```
-revealme.herokuapp.com/<github-user>/<gist-id>
-revealme.herokuapp.com/<github-user>/<gist-id>/<filename.md>
+revealme.herokuapp.com/gist/<github-user>/<gist-id>
+revealme.herokuapp.com/gist/<github-user>/<gist-id>/<filename.md>
 ```
 
 ## Options
