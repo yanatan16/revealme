@@ -19,11 +19,11 @@ revealme is a github-proxy, and all files are stored there.
 
 ## Formats
 
-Revealme accepts any `.html` format that [reveal.js](http://lab.hakim.se/reveal-js/). It has also been extended to take raw markdown.
+Revealme accepts any `.html` format that [reveal.js](http://lab.hakim.se/reveal-js/). It has also been extended to take raw markdown (supports Github-flavored too!).
 
-Revealme will create a slide for every h1 and h2 markdown header (# / ## or ==== / ----). It will make any h1 a horizontal slide and any h2 a vertical slide.
+---
 
-_Note_: Right now, you cannot mix the two formats.
+Revealme will create a slide for every h1 and h2 markdown header (# / ## or ==== / ----). It will make any h1 a horizontal slide and any h2 a vertical slide, unless `horizOnly` is used.
 
 ## Linking
 
