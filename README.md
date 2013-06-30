@@ -37,6 +37,15 @@ The top one will read the README.md file in the master branch of the repository,
 
 	revealme.herokuapp.com/yanatan16/revealme/master/example/example.html
 
+## Gist Linking
+
+Revealme now supports linking from gists:
+
+```
+revealme.herokuapp.com/<github-user>/<gist-id>
+revealme.herokuapp.com/<github-user>/<gist-id>/<filename.md>
+```
+
 ## Options
 
 There are a couple of options available to each presentation. Just stick these in an html comment at the top of your presentation in a simple format:
