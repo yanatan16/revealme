@@ -7,6 +7,7 @@ markdown.setOptions({
 	levels: 2,
 	heirarchy: true,
 	promoteHr: false,
+	deep: true,
 	gfm: true,
 	sanitize: true,
 	tables: true,
