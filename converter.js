@@ -6,6 +6,7 @@ module.exports = convertMarkdown;
 markdown.setOptions({
 	levels: 2,
 	heirarchy: true,
+	promoteHr: false,
 	gfm: true,
 	sanitize: true,
 	tables: true,

@@ -20,7 +20,7 @@
     "express": "~3.2.6",
     "underscore": "~1.4.4",
     "mime": "~1.2.9",
-    "marked-sections": "~0.1.1"
+    "marked-sections": "~0.1.4"
   },
   "engines": {
     "node": "0.10.x"
