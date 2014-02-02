@@ -5,7 +5,7 @@ module.exports = convertMarkdown;
 
 markdown.setOptions({
 	levels: 2,
-	heirarchy: true,
+	hierarchy: true,
 	promoteHr: false,
 	deep: true,
 	gfm: true,
@@ -18,5 +18,5 @@ markdown.setOptions({
 });
 
 function convertMarkdown(md, singleWrap) {
-	return markdown.parse(md, { heirarchy: singleWrap ? false : true });
+	return markdown.parse(md, { hierarchy: singleWrap ? false : true });
 }
