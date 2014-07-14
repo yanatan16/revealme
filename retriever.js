@@ -35,7 +35,7 @@ function retrieve(path, callback) {
 
 		getFile(url, callback)
 	} else {
-		getFile('https://raw.github.com' + path, callback);
+		getFile('https://raw.githubusercontent.com' + path, callback);
 	}
 }
 
